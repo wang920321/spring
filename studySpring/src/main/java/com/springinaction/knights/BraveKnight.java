@@ -3,10 +3,6 @@
  */
 package com.springinaction.knights;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import com.springinaction.minstrel.Minstrel;
 import com.springinaction.quests.Quest;
 import com.study.tool.QuestException;
 
