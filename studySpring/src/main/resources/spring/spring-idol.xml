@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans  xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                http://www.springframework.org/schema/context
@@ -20,4 +23,39 @@
          <constructor-arg value="15"/>
          <constructor-arg ref="sonnet29"/>
      </bean>
+     <bean id="theStage" class="com.springinaction.springidol.Stage" 
+           factory-method="getInstance"/>
+           <!--scope属性有5中作用域 1.singleton 在每一个Spring容器中，一个bean定义只有一个对象实例（默认）
+                                2.prototype 允许bean的定义可以被实例化任意次（每次调用都创建一个实例）
+                                3.request在一次HTTP请求中，每个bean定义对应一个实例。该作用域仅在基于web的spring上下文（例如springMVC）中才有效
+                                4.session 在一个HTTP session中，每个bean定义对应一个实例。该作用域仅在基于web的spring上下文（例如springMVC）中才有效
+                                5.global-session 在一个全局HTTP session中，每个bean定义对应一个实例。该作用域仅在Portlet上下文中才有效 -->
+     <bean id="ticket" class="com.springinaction.springidol.Ticket" 
+           scope="prototype"/>
+     <bean id="auditorium" class="com.springinaction.springidol.Auditorium"
+           init-method="turnOnLights" destroy-method="turnOffLights"/>  
+    <!--  <bean id="kenny" class="com.springinaction.springidol.Instrumentalist">
+         <property name="song" value="Jingle Bells"/>
+         name="instrument" ref="saxophone"相当于 java代码Instrument instrument=new Saxophone() 
+         <property name="instrument" ref="saxophone"/>
+         <property name="instrument">
+             <bean class="com.springinaction.springidol.Saxophone"/>
+         </property>
+     </bean> -->
+     <!--命名空间p来装配，和上面用setting装配 区别，p是bean标签属性，而setting装配写在<bean><property></property></bean>  -->
+     <bean id="kenny" class="com.springinaction.springidol.Instrumentalist"
+           p:song="Jingle Bells"
+           p:instrument-ref="saxophone" />
+     <bean id="saxophone" class="com.springinaction.springidol.Saxophone"/> 
+     <bean id="piano" class="com.springinaction.springidol.Piano"/> 
+     <!--用list装配bean  -->  
+    <!--  <bean id="hank" class="com.springinaction.springidol.OneManBand">
+         <property name="instruments">
+             <list>
+                 <ref bean="guitar"/>
+                 <ref bean="cymbal"/>
+                 <ref bean="harmonica"/>
+             </list>
+         </property>
+     </bean>      -->
 </beans> 
