@@ -14,12 +14,13 @@
                http://www.springframework.org/schema/aop
                http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                "> 
-     <bean id="duke" class="com.springinaction.springidol.Juggler">
+               <context:annotation-config/> 
+     <bean id="duke" class="com.springinaction.springidol.performer.Juggler">
          <constructor-arg value="15"/>
      </bean>
      <bean id="sonnet29"
-           class="com.springinaction.springidol.Sonnet29"/>
-     <bean id="poeticDuke" class="com.springinaction.springidol.PoeticJuggler">
+           class="com.springinaction.springidol.poem.Sonnet29"/>
+     <bean id="poeticDuke" class="com.springinaction.springidol.performer.PoeticJuggler">
          <constructor-arg value="15"/>
          <constructor-arg ref="sonnet29"/>
      </bean>
@@ -34,22 +35,24 @@
            scope="prototype"/>
      <bean id="auditorium" class="com.springinaction.springidol.Auditorium"
            init-method="turnOnLights" destroy-method="turnOffLights"/>  
-    <!--  <bean id="kenny" class="com.springinaction.springidol.Instrumentalist">
+    <!--  <bean id="kenny" class="com.springinaction.springidol.performer.Instrumentalist">
          <property name="song" value="Jingle Bells"/>
          name="instrument" ref="saxophone"相当于 java代码Instrument instrument=new Saxophone() 
          <property name="instrument" ref="saxophone"/>
          <property name="instrument">
-             <bean class="com.springinaction.springidol.Saxophone"/>
+             <bean class="com.springinaction.springidol.instrument.Saxophone"/>
          </property>
      </bean> -->
      <!--命名空间p来装配，和上面用setting装配 区别，p是bean标签属性，而setting装配写在<bean><property></property></bean>  -->
-     <bean id="kenny" class="com.springinaction.springidol.Instrumentalist"
+     <!-- <bean id="kenny" class="com.springinaction.springidol.performer.Instrumentalist"
            p:song="Jingle Bells"
-           p:instrument-ref="saxophone" />
-     <bean id="saxophone" class="com.springinaction.springidol.Saxophone"/> 
-     <bean id="piano" class="com.springinaction.springidol.Piano"/> 
+           p:instrument-ref="saxophone" /> -->
+           <bean id="kenny" class="com.springinaction.springidol.performer.Instrumentalist"
+           p:song="Jingle Bells" />
+     <bean id="saxophone" class="com.springinaction.springidol.instrument.Saxophone"/> 
+     <bean id="piano" class="com.springinaction.springidol.instrument.Piano"/> 
      <!--用list装配bean  -->  
-    <!--  <bean id="hank" class="com.springinaction.springidol.OneManBand">
+    <!--  <bean id="hank" class="com.springinaction.springidol.performer.OneManBand">
          <property name="instruments">
              <list>
                  <ref bean="guitar"/>

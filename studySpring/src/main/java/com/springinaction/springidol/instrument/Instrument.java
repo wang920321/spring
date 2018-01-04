@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.springinaction.springidol;
+package com.springinaction.springidol.instrument;
 
 /**
  * @author Administrator

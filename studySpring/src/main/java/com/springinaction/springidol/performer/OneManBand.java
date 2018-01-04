@@ -1,10 +1,11 @@
 /**
  * 
  */
-package com.springinaction.springidol;
+package com.springinaction.springidol.performer;
 
 import java.util.Collection;
 
+import com.springinaction.springidol.instrument.Instrument;
 import com.study.tool.PerformanceException;
 
 /**

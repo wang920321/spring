@@ -1,11 +1,13 @@
 /**
  * 
  */
-package com.springinaction.springidol;
+package com.springinaction.springidol.performer;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.springinaction.springidol.instrument.Instrument;
 import com.study.tool.PerformanceException;
 
 /**
@@ -31,6 +33,7 @@ public class Instrumentalist implements Performer {
 	}
 	 private Instrument instrument;
 	 @Autowired
+	 @Qualifier("piano")
 	 public void setInstrument(Instrument instrument){
 		 this.instrument=instrument;
 	 }

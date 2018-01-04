@@ -1,18 +1,18 @@
 /**
  * 
  */
-package com.springinaction.springidol;
+package com.springinaction.springidol.instrument;
 
 /**
  * @author Administrator
  *
  */
-public class Piano implements Instrument {
+public class Saxophone implements Instrument {
     
 	/**
 	 *constructors
 	 */
-	public Piano() {
+	public Saxophone() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -21,7 +21,7 @@ public class Piano implements Instrument {
 	 * @see com.springinaction.springidol.Instrument#play()
 	 */
 	public void play() {
-		System.out.println("PLINK PLINK PLINK");
+		System.out.println("TOOT TOOT TOOT");
 
 	}
 

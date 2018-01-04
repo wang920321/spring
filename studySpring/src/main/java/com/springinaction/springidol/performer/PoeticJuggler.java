@@ -1,8 +1,9 @@
 /**
  * 
  */
-package com.springinaction.springidol;
+package com.springinaction.springidol.performer;
 
+import com.springinaction.springidol.poem.Poem;
 import com.study.tool.PerformanceException;
 
 /**

@@ -6,7 +6,7 @@ package com.kenny.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.springinaction.springidol.Performer;
+import com.springinaction.springidol.performer.Performer;
 import com.study.tool.PerformanceException;
 
 /**
