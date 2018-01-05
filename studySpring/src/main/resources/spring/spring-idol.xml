@@ -14,7 +14,8 @@
                http://www.springframework.org/schema/aop
                http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                "> 
-               <context:annotation-config/> 
+               <!-- <context:annotation-config/> --> 
+               <context:component-scan base-package="com.springinaction.springidol"/>
      <bean id="duke" class="com.springinaction.springidol.performer.Juggler">
          <constructor-arg value="15"/>
      </bean>
@@ -47,8 +48,7 @@
      <!-- <bean id="kenny" class="com.springinaction.springidol.performer.Instrumentalist"
            p:song="Jingle Bells"
            p:instrument-ref="saxophone" /> -->
-           <bean id="kenny" class="com.springinaction.springidol.performer.Instrumentalist"
-           p:song="Jingle Bells" />
+           <bean id="kenny" class="com.springinaction.springidol.performer.Instrumentalist"/>
      <bean id="saxophone" class="com.springinaction.springidol.instrument.Saxophone"/> 
      <bean id="piano" class="com.springinaction.springidol.instrument.Piano"/> 
      <!--用list装配bean  -->  

@@ -25,7 +25,7 @@ public class KennyMain {
 	 * @throws PerformanceException 
 	 */
 	public static void main(String[] args) throws PerformanceException {
-		ApplicationContext context=new ClassPathXmlApplicationContext("spring/spring-idol.xml");
+		ApplicationContext context=new ClassPathXmlApplicationContext("spring/spring-idol2.xml");
 		//Performer performer=(Performer) context.getBean("kenny");用到多态，Performer performer=new Instrumentalist();
 		Performer performer=(Performer) context.getBean("kenny");
 		performer.perform();

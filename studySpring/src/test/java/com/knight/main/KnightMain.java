@@ -25,8 +25,8 @@ public class KnightMain {
 	 * @throws QuestException 
 	 */
 	public static void main(String[] args) throws QuestException {
-		ApplicationContext context=new ClassPathXmlApplicationContext("spring/knights.xml");
-		Knight knight=(Knight) context.getBean("knight");
+		ApplicationContext context=new ClassPathXmlApplicationContext("spring/spring-idol2.xml");
+		Knight knight=(Knight) context.getBean("braveKnight");
 		knight.embarkOnQuest();
 
 	}

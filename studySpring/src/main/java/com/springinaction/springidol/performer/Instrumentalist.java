@@ -6,7 +6,8 @@ package com.springinaction.springidol.performer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import com.springinaction.springidol.instrument.Instrument;
 import com.study.tool.PerformanceException;
 
@@ -14,7 +15,9 @@ import com.study.tool.PerformanceException;
  * @author Administrator
  *
  */
+@Component("kenny")
 public class Instrumentalist implements Performer {
+	@Value("higher")
     private String song;
    
     
@@ -31,9 +34,15 @@ public class Instrumentalist implements Performer {
 	public void setSong(String song) {
 		this.song = song;
 	}
-	 private Instrument instrument;
+	//@Resource(name="piano")与
+	
+	//@Inject               @Autowired
+	//@Named("piano") 和           @Qualifier("piano")
+	
+	//能达到同样效果
 	 @Autowired
-	 @Qualifier("piano")
+	 @Qualifier("guitar")
+	 private Instrument instrument;
 	 public void setInstrument(Instrument instrument){
 		 this.instrument=instrument;
 	 }
